@@ -1,16 +1,18 @@
 const fs = require('fs');
+const path = require('path');
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const waitPort = require('wait-port');
 
 describe('Микрофронтенд директории', () => {
-  test('Проверка на наличие директорий, которые в названии имеют слово microfrontend', () => {
-    const dirs = fs.readdirSync('./', { withFileTypes: true });
-    const hasDirs = dirs.some((item) =>
-      item.isDirectory() && item.name.includes('microfrontend')
+  test('Проверка на наличие директорий микрофронтендов', () => {
+    const microfrontendDir = path.join(__dirname, '..');
+    const dirs = fs.readdirSync(microfrontendDir, { withFileTypes: true });
+    const hasMicrofrontends = dirs.some((item) =>
+      item.isDirectory() && ['container-app', 'auth', 'profile', 'card'].includes(item.name)
     );
 
-    expect(hasDirs).toBe(true);
+    expect(hasMicrofrontends).toBe(true);
   });
 });
 
