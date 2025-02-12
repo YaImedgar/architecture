@@ -12,8 +12,9 @@
 
 ## Проекты
 
-1. [architecture-sprint-1 - Проект по микросервисной архитектуре](./architecture-sprint-1/README.md)
-2. [architecture-project - Проект по микрофронтендам](./architecture-project/README.md)
+1. [architecture-project - Проект по микрофронтендам](./architecture-project/README.md)
+2. [architecture-sprint-1 - Проект по микросервисной архитектуре](./architecture-sprint-1/README.md)
+2. [architecture-sprint-2 - Шардирование и репликация](./architecture-sprint-2/README.md)
 
 ## Как использовать этот репозиторий
 
@@ -42,32 +43,18 @@
 
 ### Как добавить новый проект 
 
-Для добавления нового проекта в этот репозиторий в качестве subtree, следуйте этим шагам:
+Используйте скрипт `add_new_project.sh` для автоматического добавления проекта:
 
-1. Добавьте удаленный репозиторий нового проекта:
+*   Запустите скрипт, указав версию проекта в качестве аргумента:
    ```bash
-   git remote add -f <имя_remote> <URL_репозитория>
+   ./add_new_project.sh <версия_проекта>
    ```
-   Например:
+   Например, чтобы добавить `architecture-sprint-3`:
    ```bash
-   git remote add -f new-project-remote https://github.com/Yandex-Practicum/new-project.git
-   ```
-
-2. Добавьте проект как subtree:
-   ```bash
-   git subtree add --prefix <имя_папки> <имя_remote> <ветка> --squash
-   ```
-   Например:
-   ```bash
-   git subtree add --prefix new-project-dir new-project-remote main --squash
+   ./add_new_project.sh 3
    ```
 
-3. Зафиксируйте изменения:
-   ```bash
-   git commit -m "Добавлен новый проект как subtree"
-   ```
-
-4. Обновите README.md, добавив информацию о новом проекте в соответствующие разделы.
+После чего обновите README.md, добавив информацию о новом проекте в соответствующие разделы.
 
 ## Вклад в проект
 
